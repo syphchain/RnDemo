@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import { AdMobBanner} from 'react-native-admob';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -24,7 +25,6 @@ export default class App extends Component<Props> {
       inputNum: '',
       inputPw: ''
     };
-    this.updatePw = this.updatePw.bind(this);
   }
   render() {
     return (
@@ -32,6 +32,11 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>Welcome to React Native! Hello world!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+        <AdMobBanner adSize="banner"
+                     adUnitID="ca-app-pub-7544319829646545/8354397625"
+                     testDevices={['A000007F661D9A']}
+                     onAdFailedToLoad={error => console.error(error)}
+        />
       </View>
     );
   }
